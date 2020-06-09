@@ -14,7 +14,7 @@ fetch(API_URL)
     data.map(element => {
       // Desestruture seu objeto, trazendo os seguintes dados:
       // Foto, tipo, nome e preço da propriedade.
-      const { variavel, chave } = data;
+      const { property_type, photo, name, price } = element;
 
       // Pegue a linha do container onde serão exibidos os cards.
       row = document.getElementById("row");
@@ -32,7 +32,7 @@ fetch(API_URL)
       // Não se esqueça que sua imagem precisa ser referenciada!
       image = document.createElement("img")
       image.className = "card-img-top";
-      image.src = element.photo;
+      image.src = photo;
 
 
       // Legal! Agora, já podemos começar a construir o "corpo" do card. Bora lá!
@@ -52,15 +52,15 @@ fetch(API_URL)
 
       propertyType = document.createElement("p");
       propertyType.className = "property-type";
-      propertyType.innerHTML = element.property_type;
+      propertyType.innerHTML = property_type;
 
       propertyName = document.createElement("p");
       propertyName.className = "property-name";
-      propertyName.innerHTML = element.name
+      propertyName.innerHTML = name
 
       propertyPrice = document.createElement("p");
       propertyPrice.className = "property-price";
-      propertyPrice.innerHTML = element.price
+      propertyPrice.innerHTML = price
 
       // AOBA! Temos agora, todos os elementos necessários para percorrer a resposta da API e,
       // anexar um ao outro para exibição ao usuário. Para "anexar" os elementos, nós usaremos
